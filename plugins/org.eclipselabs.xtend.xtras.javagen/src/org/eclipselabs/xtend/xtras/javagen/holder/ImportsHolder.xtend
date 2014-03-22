@@ -23,6 +23,7 @@ class ImportsHolder {
 	def useClass(String packageName, String className) {
 		return useClass(new ClassHolder(packageName, className))
 	}
+	
 	def useClass(ClassHolder classHolder) {
 		if(classHolder.packageName == null || classHolder.packageName == "java.lang") {
 			return classHolder.className
@@ -42,6 +43,10 @@ class ImportsHolder {
 			imports.addImport(classHolder)
 			return classHolder.className
 		}
+	}
+	
+	def useClassWithGenerics(ClassHolder classHolder, ClassHolder... genericsParams) {
+		return useClass(classHolder) + genericsParams.join("<", ", ", ">", [ClassHolder p | useClass(p)])
 	}
 	
 	def private addImport(HashMap<String, ClassHolder> map, ClassHolder ClassHolder) {

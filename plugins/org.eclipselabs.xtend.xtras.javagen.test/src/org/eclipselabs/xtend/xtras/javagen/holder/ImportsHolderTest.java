@@ -81,4 +81,61 @@ public class ImportsHolderTest {
     assertFalse("no import for String", imports.contains("import java.lang.String;"));
     assertFalse("no import for WrongClass", imports.contains("WrongClass"));
   }
+
+  @Test
+  public void testImportGenerics0Param() {
+    ClassHolder declaringClass = new ClassHolder("aa.bbbbb.ccc", "DeclaringClass");
+    ImportsHolder importsHolder = new ImportsHolder(declaringClass);
+
+    assertEquals("MyClass", importsHolder.useClassWithGenerics(new ClassHolder("xx.yyyyy.zzz", "MyClass")));
+
+    String imports = importsHolder.toText().toString();
+
+    assertTrue("import for MyClass", imports.contains("import xx.yyyyy.zzz.MyClass;"));
+
+  }
+
+  @Test
+  public void testImportGenerics1Param() {
+    ClassHolder declaringClass = new ClassHolder("aa.bbbbb.ccc", "DeclaringClass");
+    ImportsHolder importsHolder = new ImportsHolder(declaringClass);
+
+    assertEquals("MyClass<AClass>", importsHolder.useClassWithGenerics(new ClassHolder("xx.yyyyy.zzz", "MyClass"), new ClassHolder("xx.yyyyy.zzz", "AClass")));
+
+    String imports = importsHolder.toText().toString();
+
+    assertTrue("import for MyClass", imports.contains("import xx.yyyyy.zzz.MyClass;"));
+    assertTrue("import for MyClass", imports.contains("import xx.yyyyy.zzz.AClass;"));
+
+  }
+
+  @Test
+  public void testImportGenerics2Param() {
+    ClassHolder declaringClass = new ClassHolder("aa.bbbbb.ccc", "DeclaringClass");
+    ImportsHolder importsHolder = new ImportsHolder(declaringClass);
+
+    assertEquals("MyClass<AClass, BClass>", importsHolder.useClassWithGenerics(new ClassHolder("xx.yyyyy.zzz", "MyClass"), new ClassHolder("xx.yyyyy.zzz", "AClass"), new ClassHolder("xx.yyyyy.zzz", "BClass")));
+
+    String imports = importsHolder.toText().toString();
+
+    assertTrue("import for MyClass", imports.contains("import xx.yyyyy.zzz.MyClass;"));
+    assertTrue("import for MyClass", imports.contains("import xx.yyyyy.zzz.AClass;"));
+    assertTrue("import for MyClass", imports.contains("import xx.yyyyy.zzz.BClass;"));
+
+  }
+
+  @Test
+  public void testImportGenerics2ParamWithConflict() {
+    ClassHolder declaringClass = new ClassHolder("aa.bbbbb.ccc", "DeclaringClass");
+    ImportsHolder importsHolder = new ImportsHolder(declaringClass);
+
+    assertEquals("MyClass<AClass, oo.ppppp.qqq.AClass>", importsHolder.useClassWithGenerics(new ClassHolder("xx.yyyyy.zzz", "MyClass"), new ClassHolder("xx.yyyyy.zzz", "AClass"), new ClassHolder("oo.ppppp.qqq", "AClass")));
+
+    String imports = importsHolder.toText().toString();
+
+    assertTrue("import for MyClass", imports.contains("import xx.yyyyy.zzz.MyClass;"));
+    assertTrue("import for MyClass", imports.contains("import xx.yyyyy.zzz.AClass;"));
+    assertFalse("import for MyClass", imports.contains("import oo.ppppp.qqq.AClass;"));
+
+  }
 }
