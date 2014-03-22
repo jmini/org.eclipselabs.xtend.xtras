@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Ecore
+Bundle-SymbolicName: org.eclipselabs.xtend.xtras.ecore
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.eclipselabs.xtend.xtras.ecore.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.xtend.lib,
+ com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.emf.ecore
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Export-Package: org.eclipselabs.xtend.xtras.ecore.extentions
+

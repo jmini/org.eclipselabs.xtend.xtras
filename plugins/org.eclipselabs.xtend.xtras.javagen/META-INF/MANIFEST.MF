@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Javagen
+Bundle-SymbolicName: org.eclipselabs.xtend.xtras.javagen
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.eclipselabs.xtend.xtras.javagen.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.xtend.lib,
+ com.google.guava,
+ org.eclipse.xtext.xbase.lib
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Export-Package: org.eclipselabs.xtend.xtras.javagen.holder,
+ org.eclipselabs.xtend.xtras.javagen.util
+
