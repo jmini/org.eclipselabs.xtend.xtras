@@ -6,14 +6,16 @@ import org.eclipse.emf.ecore.EEnum
 import org.eclipse.emf.ecore.EObject
 
 class ECoreCastExtensions {
+	
 	def static EClass asEClass(EObject o) {
-		return o as EClass;	
+		return o as EClass;
 	}
 	
 	def static EDataType asEDataType(EObject o) {
-		return o as EDataType;	
+		return o as EDataType;
 	}
+	
 	def static EEnum asEEnum(EObject o) {
-		return o as EEnum;	
+		return o as EEnum;
 	}
 }

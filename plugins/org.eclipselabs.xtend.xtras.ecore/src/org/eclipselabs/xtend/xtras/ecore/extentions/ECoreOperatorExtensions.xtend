@@ -12,7 +12,7 @@ class ECoreOperatorExtensions {
 	def static operator_tripleGreaterThan(EClass eClass, EClass parentEClass) {
 		eClass.getESuperTypes.add(parentEClass)
 	}
-
+	
 	def static operator_add(EPackage ePackage, EClassifier eClassifier) {
 		ePackage.getEClassifiers.add(eClassifier);
 	}

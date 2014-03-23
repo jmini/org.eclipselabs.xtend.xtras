@@ -13,8 +13,9 @@ import org.eclipse.emf.ecore.EReference
 import static extension org.eclipselabs.xtend.xtras.ecore.extentions.ECoreOperatorExtensions.*
 
 class ECoreCreateExtensions {
+	
 	static val eCoreFactory = EcoreFactory::eINSTANCE
-		
+	
 	def static EPackage createEPakage(String name, String nsPrefix, String nsUri) {
 		var ePackage = eCoreFactory.createEPackage
 		ePackage.name = name
@@ -59,7 +60,7 @@ class ECoreCreateExtensions {
 		var eAttribute = eCoreFactory.createEAttribute
 		eAttribute.name = name
 		eAttribute.EType = eClassifier
-
+		
 		eClass  += eAttribute
 		return eAttribute
 	}

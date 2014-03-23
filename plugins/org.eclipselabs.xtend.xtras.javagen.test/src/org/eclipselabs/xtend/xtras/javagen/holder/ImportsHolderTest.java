@@ -92,7 +92,6 @@ public class ImportsHolderTest {
     String imports = importsHolder.toText().toString();
 
     assertTrue("import for MyClass", imports.contains("import xx.yyyyy.zzz.MyClass;"));
-
   }
 
   @Test
@@ -106,7 +105,6 @@ public class ImportsHolderTest {
 
     assertTrue("import for MyClass", imports.contains("import xx.yyyyy.zzz.MyClass;"));
     assertTrue("import for MyClass", imports.contains("import xx.yyyyy.zzz.AClass;"));
-
   }
 
   @Test
@@ -121,7 +119,6 @@ public class ImportsHolderTest {
     assertTrue("import for MyClass", imports.contains("import xx.yyyyy.zzz.MyClass;"));
     assertTrue("import for MyClass", imports.contains("import xx.yyyyy.zzz.AClass;"));
     assertTrue("import for MyClass", imports.contains("import xx.yyyyy.zzz.BClass;"));
-
   }
 
   @Test
@@ -136,6 +133,5 @@ public class ImportsHolderTest {
     assertTrue("import for MyClass", imports.contains("import xx.yyyyy.zzz.MyClass;"));
     assertTrue("import for MyClass", imports.contains("import xx.yyyyy.zzz.AClass;"));
     assertFalse("import for MyClass", imports.contains("import oo.ppppp.qqq.AClass;"));
-
   }
 }

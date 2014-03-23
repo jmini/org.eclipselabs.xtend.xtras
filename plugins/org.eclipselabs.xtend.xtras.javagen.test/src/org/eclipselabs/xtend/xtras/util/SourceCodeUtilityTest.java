@@ -1,6 +1,3 @@
-/**
- * 
- */
 package org.eclipselabs.xtend.xtras.util;
 
 import static org.junit.Assert.assertEquals;
@@ -37,5 +34,4 @@ public class SourceCodeUtilityTest {
     assertTrue(actual.getContent().contains("import xx.yyyy.zz.XClass;"));
     assertTrue(actual.getContent().endsWith("public class MyClass {}"));
   }
-
 }
