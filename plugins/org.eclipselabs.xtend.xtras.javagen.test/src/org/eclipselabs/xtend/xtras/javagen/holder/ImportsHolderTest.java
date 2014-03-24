@@ -134,4 +134,17 @@ public class ImportsHolderTest {
     assertTrue("import for MyClass", imports.contains("import xx.yyyyy.zzz.AClass;"));
     assertFalse("import for MyClass", imports.contains("import oo.ppppp.qqq.AClass;"));
   }
+
+  @Test
+  public void testImportGenerics1ExtendsParam() {
+    ClassHolder declaringClass = new ClassHolder("aa.bbbbb.ccc", "DeclaringClass");
+    ImportsHolder importsHolder = new ImportsHolder(declaringClass);
+
+    assertEquals("MyClass<? extends AClass>", importsHolder.useClassWithGenerics(new ClassHolder("xx.yyyyy.zzz", "MyClass"), new ExtendsClassHolder("xx.yyyyy.zzz", "AClass")));
+
+    String imports = importsHolder.toText().toString();
+
+    assertTrue("import for MyClass", imports.contains("import xx.yyyyy.zzz.MyClass;"));
+    assertTrue("import for MyClass", imports.contains("import xx.yyyyy.zzz.AClass;"));
+  }
 }
